@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+    <script>
+
+        function getStar()
+        {
+            var starRating = 5.0;
+        }
+
+        function sendMoney()
+        {
+            // alert("Money send protocol initiated");
+        }
+
+        function receiveMoney()
+        {
+            // alert("Receiving money protocol received");
+        }
+    </script>
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .checked {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-profile">
+        <!--Change this information according to the user-->
+        <img src="" alt="User's Profile Picture" style="width:100%; height:30%">
+        <h1 align="center">{User name}</h1>
+        <p align="center">{Location}</p>
+
+        <!--TODO: Hard Coded values of stars, Need to change-->
+
+        <div id="stars">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            (4.0)
+        </div>
+        <button type="button" onclick="sendMoney()">Send Money</button>
+        <button type="button" onclick="receiveMoney()">Receive Money</button>
+    </div>
+</body>
+</html>
