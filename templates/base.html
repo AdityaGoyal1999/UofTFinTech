@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <h1>UofTFinTech</h1>
+    <script>
+
+    function getInfo()
+    {
+        var username = document.forms["login"]["name"].value;
+        var password = document.forms["login"]["password"].value;
+        alert(username);
+        alert(password);
+    }
+</script>
+</head>
+<body>
+    <form name="login" action="" onsubmit="return getInfo()">
+        <input type="text" placeholder="Enter Name" name="name" required>
+        <br>
+        <input type="text" placeholder="Enter password" name="password" required>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
