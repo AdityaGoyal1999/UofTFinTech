@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- IMPORTS -->
+    <script src="import/js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="import/css/bootstrap.min.css">
+    <script src="import/js/bootstrap.min.js"></script>
+    <script src="import/js/firebase-app.js"></script>
+    <script src="import/js/firebase-auth.js"></script>
+
+    <!-- SRC SCRIPTS -->
+    <script src="src/js/ui.js"></script>
+    <script src="src/js/user.js"></script>
+
+</head>
+<body>
+<div class="container-fluid">
+    <button id="firebaseTest" type="button" class="btn btn-secondary">Firebase Login</button><br><br>
+    <div id="userHolder" class="container-fluid">
+        Not logged in.
+    </div>
+</div>
+
+<!-- Aditya's Login Form
+<form name="login" action="" onsubmit="return getInfo()">
+    <input type="text" placeholder="Enter Name" name="name" required>
+    <br>
+    <input type="text" placeholder="Enter password" name="password" required>
+    <input type="submit" value="Submit">
+</form>
+-->
+
+<script>
+    data = Object();
+    data.disconnected = false;
+    data.loggingIn = false;
+    data.user = null;
+
+    initUserAuth(data);
+</script>
+</body>
+</html>
