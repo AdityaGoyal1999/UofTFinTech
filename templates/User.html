@@ -3,23 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>User</title>
-    <script>
-
-        function getStar()
-        {
-            var starRating = 5.0;
-        }
-
-        function sendMoney()
-        {
-            // alert("Money send protocol initiated");
-        }
-
-        function receiveMoney()
-        {
-            // alert("Receiving money protocol received");
-        }
-    </script>
     <!-- Font Awesome Icon Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -38,15 +21,73 @@
         <!--TODO: Hard Coded values of stars, Need to change-->
 
         <div id="stars">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
             <span class="fa fa-star"></span>
             <span class="fa fa-star"></span>
-            (4.0)
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <p id="ratingValue"></p>
         </div>
         <button type="button" onclick="sendMoney()">Send Money</button>
         <button type="button" onclick="receiveMoney()">Receive Money</button>
     </div>
+    <script>
+
+        document.getElementById("ratingValue").innerHTML = "("+getRating()+")";
+
+        function getStar(whichStar)
+        {
+            var starRating = 0.0;
+            if(whichStar === "first") {
+                if (starRating >= 1.0)
+                    return "fa fa-star checked";
+                else
+                    return "fa fa-star";
+            }
+            else if(whichStar === "second") {
+                if (starRating >= 2.0)
+                    return "fa fa-star checked";
+                else
+                    return "fa fa-star";
+            }
+            else if(whichStar === "third") {
+                if (starRating >= 3.0)
+                    return "fa fa-star checked";
+                else
+                    return "fa fa-star";
+            }
+            else if(whichStar === "fourth") {
+                if (starRating >= 4.0)
+                    return "fa fa-star checked";
+                else
+                    return "fa fa-star";
+            }
+            else
+            {
+                if (starRating >= 5.0)
+                    return "fa fa-star checked";
+                else
+                    return "fa fa-star";
+            }
+        }
+
+        function sendMoney()
+        {
+            // alert("Money send protocol initiated");
+        }
+
+        function receiveMoney()
+        {
+            // alert("Receiving money protocol received");
+        }
+
+        function getRating()
+        {
+            // Need to connect the data base to the rating
+            var rating = "4.0";
+            return rating;
+        }
+
+    </script>
 </body>
 </html>
