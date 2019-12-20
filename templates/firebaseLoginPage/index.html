@@ -14,23 +14,59 @@
     <script src="src/js/ui.js"></script>
     <script src="src/js/user.js"></script>
 
+    <style>
+
+        header{
+            /*background-color: #007bff;*/
+            position: fixed;
+        }
+
+        header a{
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            line-height: 25px;
+            border-radius: 4px;
+        }
+
+        .container-fluid{
+            font-size:10px;
+            position: absolute;
+            left: 20px;
+            top: 100px;
+        }
+
+        .company-options {
+            float: right;
+        }
+    </style>
+
 </head>
 <body>
-<div class="container-fluid">
-    <button id="firebaseTest" type="button" class="btn btn-secondary">Firebase Login</button><br><br>
-    <div id="userHolder" class="container-fluid">
-        Not logged in.
-    </div>
-</div>
-
-<!-- Aditya's Login Form
-<form name="login" action="" onsubmit="return getInfo()">
-    <input type="text" placeholder="Enter Name" name="name" required>
+    <header>
+        <a href="#" class="logo">LOGO</a>
+        <div class="company-options">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </header>
     <br>
-    <input type="text" placeholder="Enter password" name="password" required>
-    <input type="submit" value="Submit">
-</form>
--->
+    <div class="container-fluid">
+        <button id="firebaseTest" type="button" class="btn btn-secondary">Firebase Login</button><br><br>
+        <div id="userHolder" class="container-fluid">
+            Not logged in.
+        </div>
+    </div>
+
+<!--<form name="login" action="" onsubmit="return getInfo()">-->
+    <!--<input type="text" placeholder="Enter Name" name="name" required>-->
+    <!--<br>-->
+    <!--<input type="text" placeholder="Enter password" name="password" required>-->
+    <!--<input type="submit" value="Submit">-->
+<!--</form>-->
 
 <script>
     data = Object();
