@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
 
     <!-- IMPORTS -->
-    <script src="../../import/js/jquery.min.js"></script>
+    <script src="../../import/js/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="../../import/css/bootstrap.min.css">
     <script src="../../import/js/bootstrap.min.js"></script>
     <script src="../../import/js/firebase-app.js"></script>
@@ -26,8 +26,8 @@
         </div>
     </header>
     <br>
-    <form id="f01" name="login" action="" onsubmit="return getInfo()">
-        <input type="text" placeholder="Enter Name" name="name">
+    <form class="" name="login" action="" onsubmit="return getInfo()">
+        <input type="text" placeholder="Enter Name" name="name" required>
         <br>
         <input type="text" placeholder="Enter password" name="password" required>
         <input type="submit" value="Submit">
@@ -41,17 +41,6 @@
     <footer class="fixed-bottom" style="background-color: #007bff;">
         <a href="mailto:#" style="color: black;">Email us</a>
     </footer>
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <!--<script src="/__/firebase/7.6.1/firebase-app.js"></script>-->
-
-    <!--&lt;!&ndash; TODO: Add SDKs for Firebase products that you want to use-->
-         <!--https://firebase.google.com/docs/web/setup#available-libraries &ndash;&gt;-->
-    <!--<script src="/__/firebase/7.6.1/firebase-analytics.js"></script>-->
-
-    <!--&lt;!&ndash; Initialize Firebase &ndash;&gt;-->
-    <!--<script src="/__/firebase/init.js"></script>-->
-
 <script>
     data = Object();
     data.disconnected = false;
@@ -59,13 +48,4 @@
     data.user = null;
 
     initUserAuth(data);
-
-    function getInfo()
-    {
-        var username = document.forms["login"]["name"].value;
-        var password = document.forms["login"]["password"].value;
-        // alert(username);
-        // console.log(password);
-    }
-</script>
 </html>
