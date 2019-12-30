@@ -1,7 +1,23 @@
+/*This file is used by index.html, AboutUs.html
+*/
+
+body{
+    font-family: Verdana;
+}
 header{
-    /*background-color: #007bff;*/
+    background-color: #007bff;
     position: fixed;
 }
+
+#f01 {
+    margin-left: 50px;
+    margin-top: 150px;
+}
+
+/*#firebaseTest{*/
+    /*margin-left: 50px;*/
+    /*margin-top: 140px;*/
+/*}*/
 
 header a{
     float: left;
@@ -23,4 +39,8 @@ header a{
 
 .company-options {
     float: right;
+}
+
+.footer {
+
 }
