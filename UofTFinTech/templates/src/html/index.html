@@ -2,17 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- IMPORTS -->
     <script src="../../import/js/jquery.min.js"></script>
     <link rel="stylesheet" href="../../import/css/bootstrap.min.css">
     <script src="../../import/js/bootstrap.min.js"></script>
-    <script src="../../import/js/firebase-app.js"></script>
-    <script src="../../import/js/firebase-auth.js"></script>
+    <!--<script src="../../import/js/firebase-app.js"></script>-->
+    <!--<script src="../../import/js/firebase-auth.js"></script>-->
+
+
+
 
     <!-- SRC SCRIPTS -->
     <script src="../js/ui.js"></script>
-    <script src="../js/user.js"></script>
+    <!--<script src="../js/user.js"></script>-->
 
     <link rel="stylesheet" href="../css/index.css">
 
@@ -26,20 +30,32 @@
         </div>
     </header>
     <br>
-    <form id="f01" name="login" action="" onsubmit="return getInfo()">
-        <input type="text" placeholder="Enter Name" name="name">
+    <div id="f01">
+        <input type="text" id="txtLogin" placeholder="Enter Name" required>
         <br>
-        <input type="text" placeholder="Enter password" name="password" required>
-        <input type="submit" value="Submit">
-    </form>
-    <div class="container-fluid">
-        <button id="firebaseTest" type="button" class="btn btn-secondary">Firebase Login</button><br><br>
-        <div id="userHolder" class="container-fluid">
-            Not logged in.
-        </div>
+        <input type="text" id="txtPassword" placeholder="Enter password" required>
+        <br>
+        <button id="LogInBtn" onclick="return login()">LogIn</button>
+        <button id="SignUpBtn" onclick="return signup()">SignUp</button>
     </div>
+    <!--<form id="f01" name="login" action="" onsubmit="return login()">-->
+        <!--<input type="text" id="txtLogin"placeholder="Enter Name" name="name">-->
+        <!--<br>-->
+        <!--<input type="text" id="txtPassword"placeholder="Enter password" name="password" required>-->
+        <!--<br>-->
+        <!--<button id="LogInBtn" onclick="return login()">LogIn</button>-->
+        <!--<button id="SignUpBtn" onclick="return signup()">SignUp</button>-->
+        <!--&lt;!&ndash;<input type="submit" value="Submit">&ndash;&gt;-->
+    <!--</form>-->
+
+    <!--<div class="container-fluid">-->
+        <!--<button id="firebaseTest" type="button" class="btn btn-secondary">Firebase Login</button><br><br>-->
+        <!--<div id="userHolder" class="container-fluid">-->
+            <!--Not logged in.-->
+        <!--</div>-->
+    <!--</div>-->
     <footer class="fixed-bottom" style="background-color: #007bff;">
-        <a href="mailto:#" style="color: black;">Email us</a>
+        <a href="mailto:kabootar.uoft@gmail.com" style="color: black;">Email us</a>
     </footer>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -51,7 +67,9 @@
 
     <!--&lt;!&ndash; Initialize Firebase &ndash;&gt;-->
     <!--<script src="/__/firebase/init.js"></script>-->
-
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
 <script>
     data = Object();
     data.disconnected = false;
@@ -64,8 +82,71 @@
     {
         var username = document.forms["login"]["name"].value;
         var password = document.forms["login"]["password"].value;
-        // alert(username);
-        // console.log(password);
+        alert(username);
+        console.log(password);
+    }
+
+    function initializeFirebaseApp()
+    {
+        var firebaseConfig = {
+            apiKey: "AIzaSyBhn1G5-Zk08AZ435rUMIkeXmf1upKcmeI",
+            authDomain: "kabootar-74acc.firebaseapp.com",
+            databaseURL: "https://kabootar-74acc.firebaseio.com",
+            projectId: "kabootar-74acc",
+            storageBucket: "kabootar-74acc.appspot.com",
+            messagingSenderId: "255478711946",
+            appId: "1:255478711946:web:6a805b498fc103aea14f73",
+            measurementId: "G-MPJ82G8EVZ"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    }
+    function login()
+    {
+        initializeFirebaseApp();
+        const email = document.getElementById("txtLogin").innerText;
+        const password = document.getElementById("txtPassword").innerText;
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+        });
+        stateChange();
+        alert("reached this place");
+    }
+
+    function signup()
+    {
+        initializeFirebaseApp();
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+        });
+        stateChange();
+    }
+
+    function stateChange()
+    {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                var displayName = user.displayName;
+                var email = user.email;
+                var emailVerified = user.emailVerified;
+                var photoURL = user.photoURL;
+                var isAnonymous = user.isAnonymous;
+                var uid = user.uid;
+                var providerData = user.providerData;
+                // ...
+            } else {
+                // User is signed out.
+                // ...
+            }
+        });
+
     }
 </script>
 </html>
