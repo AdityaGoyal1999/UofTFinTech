@@ -1,12 +1,47 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Complete Dashboard</title>-->
+<!--</head>-->
+<!--<body>-->
+    <!--<h1 id="Welcome">Welcome user</h1>-->
+
+    <!--<script src="../js/user.js"></script>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Complete Dashboard</title>
+    <title>Dashboard</title>
+
+    <!-- CDN IMPORTS -->
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/ui/4.0.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.0.0/firebase-ui-auth.css" />
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+    <!-- OUR CODE -->
+    <script src="../js/firebaseConfig.js"></script>
+    <script src="../js/user.js"></script>
+    <script src="../js/database.js"></script>
 </head>
 <body>
-    <h1 id="Welcome">Welcome user</h1>
+<h2>Welcome to your Complete Dashboard!</h2>
+<div class="user-profile">
+    <!--Change this information according to the user-->
+    <img id="profilePic" src="" alt="User's Profile Picture" style="width:128px;">
+    <h1 id="usernameHeader" align="center">{User name}</h1>
+    <p id="locationParagraph" align="center">{Location}</p><br>
+</div>
 
-    <script src="../js/user.js"></script>
 </body>
-</html>
