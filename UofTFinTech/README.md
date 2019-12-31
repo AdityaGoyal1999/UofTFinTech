@@ -5,4 +5,3 @@
 <br> For this project, we will be using the google firebase's cloud service to store data temporarily. Later, we will 
 develope our own database for added security of the users.<p>
 <p> For the added security of the users, we are planning to have reCAPTCHA for our login page.</p>
-<p> We are using google's firebase to maintain authentication mainiting the database. The database that we are using is based on NoSQL which is scalable and addition of new properties is possible at any time. </p>

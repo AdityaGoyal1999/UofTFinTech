@@ -1,6 +1,5 @@
 function initializeFirebaseApp()
 {
-    // Your web app's Firebase configuration
     var firebaseConfig = {
         apiKey: "AIzaSyCCRMtDs_u5jd9Pph2cIa7O2Af8MPtOjnY",
         authDomain: "uoftfint.firebaseapp.com",
