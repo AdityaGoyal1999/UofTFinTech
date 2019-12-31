@@ -1,4 +1,4 @@
-
+// var displayName;
 
 $(function() {
     initializeFirebaseApp();
@@ -27,3 +27,5 @@ $(function() {
         }
     });
 });
+
+// document.getElementById("Welcome").innerHTML = displayName;
