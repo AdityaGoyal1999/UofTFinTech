@@ -1,3 +1,6 @@
+var userObj;
+var email;
+var name;
 $(function() {
     var firebaseConfig = {
         apiKey: "AIzaSyCCRMtDs_u5jd9Pph2cIa7O2Af8MPtOjnY",
@@ -14,6 +17,10 @@ $(function() {
 
     firebase.auth().onAuthStateChanged(function(user) {
         console.log(user);
+        email = user.email;
+        name = user.name;
+        userObj = user;
+        checkout();
     });
 
     var uiConfig = {
@@ -44,3 +51,23 @@ $(function() {
     // The start method will wait until the DOM is loaded.
     ui.start('#firebaseui-auth-container', uiConfig);
 });
+
+// Database
+
+function checkout()
+{
+    var firebaseRef = firebase.database().ref();
+
+    // firebaseRef.child("Text").set("Uno");
+    // firebaseRef.child("Text2").set("Dos");
+    // firebaseRef.child("Text3").child("emails").set("Tres");
+    // window.alert(email);
+    // window.alert("location");
+    // window.alert("0");
+    // firebaseRef.child(email+"/name").set(name);
+    // firebaseRef.child(email+"/location").set("Not given");
+    // firebaseRef.child(email+"/ratings").set("0");
+    // firebaseRef.child("email").set(email);
+    // firebaseRef.child("email/name").set(name);
+    // firebaseRef.child(String(email)).set("email");
+}
