@@ -1,9 +1,3 @@
-// var displayName;
-/**
- * User.js should have the complete data of the currently logged in user. user.html and CompleteUserInfo.html should use
- * this file to access the user-information.
- */
-
 $(function() {
     initializeFirebaseApp();
 

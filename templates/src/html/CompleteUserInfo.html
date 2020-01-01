@@ -32,16 +32,31 @@
 
     <!-- OUR CODE -->
     <script src="../js/firebaseConfig.js"></script>
-    <script src="../js/user.js"></script>
+    <script src="../js/CompleteUserInfo.js"></script>
     <script src="../js/database.js"></script>
 </head>
 <body>
-<h2>Welcome to your Complete Dashboard!</h2>
+<h2 id="heading">Welcome to your Dashboard!</h2>
 <div class="user-profile">
     <!--Change this information according to the user-->
-    <img id="profilePic" src="" alt="User's Profile Picture" style="width:128px;">
-    <h1 id="usernameHeader" align="center">{User name}</h1>
-    <p id="locationParagraph" align="center">{Location}</p><br>
+    <img id="profilePic"src="" alt="User's Profile Picture" style="width:128px; border-radius: 50%">
+    <br>
+    <form>
+        Name:<br>
+        <input id="username" size="30" type="text" name="name" value="" readonly>
+        <br>
+        Location:<br>
+        <input id="location" size="30" type="text" name="password" value="" readonly>
+        <br>
+        Phone:<br>
+        <input id="phone number" size="30" name="phone number" type="text"  value="" readonly>
+        <br>
+        Email <br>
+        <input id="email" name="email" size="30" type="text" value="" readonly>
+        <br>
+        Date of Birth: <br>
+        <input id="dob" name="Date Of Birth" size="30" type="text" value="" readonly>
+    </form>
 </div>
 
 </body>
