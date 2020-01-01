@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .checked {
+            color: orange;
+        }
+    </style>
+
+    <!-- CDN IMPORTS -->
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/ui/4.0.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.0.0/firebase-ui-auth.css" />
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+    <!-- OUR CODE -->
+    <script src="../js/firebaseConfig.js"></script>
+    <script src="../js/user.js"></script>
+    <script src="../js/database.js"></script>
+</head>
+<body>
+    <h2>Welcome to your dashboard!</h2>
+    <a href="CompleteUserInfo.html">Complete Dashboard</a>
+    <div class="user-profile">
+        <!--Change this information according to the user-->
+        <img id="profilePic" src="" alt="User's Profile Picture" style="width:128px; ">
+        <h1 id="usernameHeader" align="center">{User name}</h1>
+        <p id="locationParagraph" align="center">{Location}</p><br>
+
+
+        <!--TODO: Hard Coded values of stars, Need to change-->
+
+        <div id="stars">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <p id="ratingValue"></p>
+        </div>
+    </div>
+
+        <button><a href="transfer.html">Send money</a></button>
+    </div>
+    <script>
+
+        document.getElementById("ratingValue").innerHTML = "("+getRating()+")";
+
+        function getStar(whichStar)
+        {
+            var starRating = 0.0;
+            if(whichStar === "first") {
+                if (starRating >= 1.0)
+                    return "fa fa-star checked";
+                else
+                    return "fa fa-star";
+            }
+            else if(whichStar === "second") {
+                if (starRating >= 2.0)
+                    return "fa fa-star checked";
+                else
+                    return "fa fa-star";
+            }
+            else if(whichStar === "third") {
+                if (starRating >= 3.0)
+                    return "fa fa-star checked";
+                else
+                    return "fa fa-star";
+            }
+            else if(whichStar === "fourth") {
+                if (starRating >= 4.0)
+                    return "fa fa-star checked";
+                else
+                    return "fa fa-star";
+            }
+            else
+            {
+                if (starRating >= 5.0)
+                    return "fa fa-star checked";
+                else
+                    return "fa fa-star";
+            }
+        }
+
+        function sendMoney()
+        {
+            // alert("Money send protocol initiated");
+        }
+
+        function receiveMoney()
+        {
+            // alert("Receiving money protocol received");
+        }
+
+        function getRating()
+        {
+            // Need to connect the data base to the rating
+            var rating = "4.0";
+            return rating;
+        }
+    </script>
+</body>
+</html>
