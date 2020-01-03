@@ -13,12 +13,16 @@ $(function() {
             var uid = user.uid;
             var providerData = user.providerData;
 
-            // saveData(email, displayName, uid);
+            saveData(email, displayName, uid);
+            // updatePage(uid);
+            // showDatabaseContent();
+            // window.alert(email);
+            // var rating = getRating();
+            // window.alert("hello");
 
             $("#profilePic").attr("src", photoURL);
             $("#usernameHeader").html(displayName);
             $("#locationParagraph").html(email);
-
         } else {
             // User is signed out.
             // ...
@@ -26,4 +30,10 @@ $(function() {
     });
 });
 
-// document.getElementById("Welcome").innerHTML = displayName;
+
+function updatePage(uid)
+{
+    // document.getElementById("ratingValue").innerText = "2.0";
+    var rating = showDatabaseContent(uid);
+    window.alert(rating);
+}
