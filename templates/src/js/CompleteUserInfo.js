@@ -13,7 +13,7 @@ $(function() {
             var uid = user.uid;
             var providerData = user.providerData;
 
-            saveData(email, displayName, uid);
+            // saveData(email, displayName, uid);
 
             $("#heading").html("Welcome to your Dashboard, "+displayName+".");
             $("#profilePic").attr("src", photoURL);
