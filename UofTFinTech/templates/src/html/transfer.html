@@ -6,9 +6,8 @@
 </head>
 <body>
     <h1>Request Money Transactions</h1>
-    <form>
         Place to transfer money: <br>
-        <!--<input type="text"> <br>-->
+        <input type="text"> <br>
         <input id="country" list="countries" name="countries" >
         <datalist id="countries">
             <option value="Afganistan">Afghanistan</option>
@@ -265,7 +264,6 @@
         <input id="flexibility" type="text"> <br>
         Deadline: <br>
         <input id="deadline" type="text"> <br>
-        <input type="submit" value="Submit Request" onclick="saveRequest()">
-    </form>
+    <button type="submit" onclick="saveRequest()">Submit Request</button>
 </body>
 </html>
