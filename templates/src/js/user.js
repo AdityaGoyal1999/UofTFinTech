@@ -14,26 +14,15 @@ $(function() {
             var providerData = user.providerData;
 
             saveData(email, displayName, uid);
-            // updatePage(uid);
-            // showDatabaseContent();
-            // window.alert(email);
-            // var rating = getRating();
-            // window.alert("hello");
+            getRating();
 
             $("#profilePic").attr("src", photoURL);
             $("#usernameHeader").html(displayName);
-            $("#locationParagraph").html(email);
+            $("#userEmail").html(email);
+            $("#ratingValue").html(getRating());
         } else {
             // User is signed out.
             // ...
         }
     });
 });
-
-
-function updatePage(uid)
-{
-    // document.getElementById("ratingValue").innerText = "2.0";
-    var rating = showDatabaseContent(uid);
-    window.alert(rating);
-}

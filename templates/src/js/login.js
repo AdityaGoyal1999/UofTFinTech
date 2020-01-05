@@ -16,7 +16,7 @@ $(function() {
         // tosUrl and privacyPolicyUrl accept either url string or a callback
         // function.
         // Terms of service url/callback.
-        tosUrl: 'login.html',
+        tosUrl: '',
         // Privacy policy url/callback.
         privacyPolicyUrl: function () {
             window.location.assign('login.html');

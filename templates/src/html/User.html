@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>User</title>
@@ -12,10 +13,7 @@
     </style>
 
     <!-- CDN IMPORTS -->
-    <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
@@ -27,20 +25,23 @@
 
     <!-- OUR CODE -->
     <link type="text/css" rel="stylesheet" href="../css/user.css" />
+
     <script src="../js/firebaseConfig.js"></script>
     <script src="../js/user.js"></script>
     <script src="../js/database.js"></script>
 </head>
+
 <body>
     <h2>Welcome to your dashboard!</h2>
-    <a href="CompleteUserInfo.html">Complete Dashboard</a>
+    <!--<a href="CompleteUserInfo.html">User Info</a>-->
     <div class="user-profile">
         <!--Change this information according to the user-->
         <h2><u>Your mini dashboard</u></h2>
         <img id="profilePic" src="" alt="User's Profile Picture" style="width:128px; border-radius:50%">
         <br>
-        <h1 id="usernameHeader" align="center">{User name}</h1>
-        <p id="locationParagraph" align="center">{Location}</p><br>
+        <h1 id="usernameHeader">{User name}</h1>
+        <p id="userEmail">{Location}</p><br>
+
 
 
         <!--TODO: Hard Coded values of stars, Need to change-->
@@ -55,42 +56,37 @@
         </div>
     </div>
     <br>
-
-        <button id="send-button"><a href="transfer.html">Send money</a></button>
+    <button id="user-info"><a href="CompleteUserInfo.html">User Information</a></button>
+    <button id="send-button"><a href="transfer.html">Send money</a></button>
+    <button id="transactions"><a href="transactions.html">Transactions</a></button>
     </div>
+
     <!--<script>-->
+        <!--document.getElementById("ratingValue").innerHTML = "(" + getRating() + ")";-->
 
-        <!--document.getElementById("ratingValue").innerHTML = "("+getRating()+")";-->
-
-        <!--function getStar(whichStar)-->
-        <!--{-->
+        <!--function getStar(whichStar) {-->
             <!--var starRating = 0.0;-->
-            <!--if(whichStar === "first") {-->
+            <!--if (whichStar === "first") {-->
                 <!--if (starRating >= 1.0)-->
                     <!--return "fa fa-star checked";-->
                 <!--else-->
                     <!--return "fa fa-star";-->
-            <!--}-->
-            <!--else if(whichStar === "second") {-->
+            <!--} else if (whichStar === "second") {-->
                 <!--if (starRating >= 2.0)-->
                     <!--return "fa fa-star checked";-->
                 <!--else-->
                     <!--return "fa fa-star";-->
-            <!--}-->
-            <!--else if(whichStar === "third") {-->
+            <!--} else if (whichStar === "third") {-->
                 <!--if (starRating >= 3.0)-->
                     <!--return "fa fa-star checked";-->
                 <!--else-->
                     <!--return "fa fa-star";-->
-            <!--}-->
-            <!--else if(whichStar === "fourth") {-->
+            <!--} else if (whichStar === "fourth") {-->
                 <!--if (starRating >= 4.0)-->
                     <!--return "fa fa-star checked";-->
                 <!--else-->
                     <!--return "fa fa-star";-->
-            <!--}-->
-            <!--else-->
-            <!--{-->
+            <!--} else {-->
                 <!--if (starRating >= 5.0)-->
                     <!--return "fa fa-star checked";-->
                 <!--else-->
@@ -98,22 +94,20 @@
             <!--}-->
         <!--}-->
 
-        <!--function sendMoney()-->
-        <!--{-->
+        <!--function sendMoney() {-->
             <!--// alert("Money send protocol initiated");-->
         <!--}-->
 
-        <!--function receiveMoney()-->
-        <!--{-->
+        <!--function receiveMoney() {-->
             <!--// alert("Receiving money protocol received");-->
         <!--}-->
 
-        <!--function getRating()-->
-        <!--{-->
+        <!--function getRating() {-->
             <!--// Need to connect the data base to the rating-->
             <!--var rating = "4.0";-->
             <!--return rating;-->
         <!--}-->
     <!--</script>-->
 </body>
+
 </html>

@@ -1,8 +1,9 @@
-var firebaseRef = firebase.database().ref();
+var uid;
 
 function saveData(email, name, uid)
 {
-
+    this.uid = uid;
+    var firebaseRef = firebase.database().ref();
     firebaseRef.child(uid+"/email").set(email);
     firebaseRef.child(uid+"/name").set(name);
     firebaseRef.child(uid+"/ratings").set(0);
@@ -12,7 +13,13 @@ function saveData(email, name, uid)
     firebaseRef.child(uid+"/request/flexibility").set(0);
 }
 
-function showDatabaseContent(uid)
+// TODO: Fix the NA shown
+function getRating()
 {
-    return firebaseRef.child(uid+"ratings").getBack();
+    var firebaseRef = firebase.database().ref();
+    var rating = "NA";
+    firebaseRef.on('value', function(snapshot){
+        rating = snapshot.child(uid+"/ratings").val();
+    });
+    return rating;
 }
