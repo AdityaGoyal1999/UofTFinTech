@@ -14,10 +14,12 @@ $(function() {
             var providerData = user.providerData;
 
             saveData(email, displayName, uid);
+            getRating();
 
             $("#profilePic").attr("src", photoURL);
             $("#usernameHeader").html(displayName);
             $("#userEmail").html(email);
+            $("#ratingValue").html(getRating());
         } else {
             // User is signed out.
             // ...
