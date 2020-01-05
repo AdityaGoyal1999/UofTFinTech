@@ -13,18 +13,16 @@
 
 #send-button{
     padding: 30px;
-    margin-top: 300px;
-    margin-left: 200px;
+    margin-top: 200px;
 }
 
 #transactions{
     padding: 30px;
-    margin-top: 350px;
-    margin-left: 200px;
+    margin-top: 200px;
 }
 
 #user-info{
     padding: 30px;
-    margin-top: 250px;
-    margin-left: 200px;
+    margin-top: 200px;
+    margin-left: 100px;
 }

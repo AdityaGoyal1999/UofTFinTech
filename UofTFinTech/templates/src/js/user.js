@@ -17,8 +17,7 @@ $(function() {
 
             $("#profilePic").attr("src", photoURL);
             $("#usernameHeader").html(displayName);
-            $("#locationParagraph").html(email);
-
+            $("#userEmail").html(email);
         } else {
             // User is signed out.
             // ...
