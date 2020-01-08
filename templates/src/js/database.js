@@ -23,3 +23,13 @@ function getRating()
     });
     return rating;
 }
+
+function getName()
+{
+    var firebaseRef = firebase.database().ref();
+    var name = "NA";
+    firebaseRef.on('value', function(snapshot){
+        name = snapshot.child(uid+"/name").val();
+    });
+    return name;
+}
