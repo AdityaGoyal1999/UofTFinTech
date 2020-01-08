@@ -1,0 +1,1 @@
+document.getElementById("transaction").innerHTML = "These are the transactions that you have had"

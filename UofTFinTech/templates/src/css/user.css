@@ -1,0 +1,28 @@
+
+.user-profile{
+    border: 1px solid black;
+    width: 50%;
+    height: 400px;
+    float: right;
+    padding: 10px;
+}
+
+#profilePic{
+    float: right;
+}
+
+#send-button{
+    padding: 30px;
+    margin-top: 200px;
+}
+
+#transactions{
+    padding: 30px;
+    margin-top: 200px;
+}
+
+#user-info{
+    padding: 30px;
+    margin-top: 200px;
+    margin-left: 100px;
+}
