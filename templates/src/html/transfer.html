@@ -14,7 +14,6 @@
 <body>
     <h1>Request Money Transactions</h1>
         Place to transfer money: <br>
-        <input type="text"> <br>
         <input id="country" list="countries" name="countries" >
         <datalist id="countries">
             <option value="Afganistan">Afghanistan</option>
@@ -267,10 +266,10 @@
         <br>
         Amount: <br>
         <input id="amount" type="text"> <br>
-        Flexibility: <br>
+        Deadline to get money: <br>
+        <input id="deadline" type="date"> <br>
+        Flexibility to get money: <br>
         <input id="flexibility" type="text"> <br>
-        Deadline: <br>
-        <input id="deadline" type="text"> <br>
     <button type="submit" onclick="saveRequest()">Submit Request</button>
 </body>
 </html>
