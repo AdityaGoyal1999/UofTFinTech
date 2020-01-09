@@ -1,6 +1,6 @@
 function initializeFirebaseApp()
 {
-    var firebaseConfig = {
+    let firebaseConfig = {
         apiKey: "AIzaSyCCRMtDs_u5jd9Pph2cIa7O2Af8MPtOjnY",
         authDomain: "uoftfint.firebaseapp.com",
         databaseURL: "https://uoftfint.firebaseio.com",
