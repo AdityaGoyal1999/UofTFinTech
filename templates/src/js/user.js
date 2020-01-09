@@ -2,7 +2,6 @@ $(function() {
     initializeFirebaseApp();
 
     firebase.auth().onAuthStateChanged(function (user) {
-        console.log(user);
         if (user) {
             var displayName = user.displayName;
             var email = user.email;
@@ -14,12 +13,13 @@ $(function() {
             var providerData = user.providerData;
 
             saveData(email, displayName, uid);
-            getRating();
 
             $("#profilePic").attr("src", photoURL);
             $("#usernameHeader").html(displayName);
             $("#userEmail").html(email);
-            $("#ratingValue").html(getRating());
+            onRating(function(rating){
+                $("#ratingValue").html(rating);
+            });
         } else {
             // User is signed out.
             // ...
