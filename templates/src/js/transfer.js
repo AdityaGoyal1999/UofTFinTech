@@ -4,7 +4,8 @@ $(function(){
 
 function saveRequest()
 {
-    let country = $("#country").val();
+    let srcCountry = $("#srcCountry").val();
+    let destCountry = $("#destCountry").val();
     let amount = $("#amount").val();
     let flexibility = $("#flexibility").val();
     let deadline = $("#deadline").val();
@@ -17,10 +18,12 @@ function saveRequest()
 
         let requestCount = snapshot.val().requestCount;
         firebaseRef.child("/requests/req" + requestCount).set({
-            country: country,
+            srcCountry: srcCountry,
+            destCountry: destCountry,
             amount: amount,
             flexibility: flexibility,
-            deadline: deadline
+            deadline: deadline,
+            match: "null"
         });
         firebaseRef.child("/requestCount").set(requestCount + 1);
     });
