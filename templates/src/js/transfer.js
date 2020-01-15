@@ -2,21 +2,28 @@ $(function(){
     initializeFirebaseApp();
 });
 
+/**
+ * matched - Means that a request is matched.
+ * pending - Means that a request is pending.
+ * withdrawn - Means that the request has been removed.
+ */
 function saveRequest()
 {
-    let srcCountry = $("#srcCountry").val();
-    let destCountry = $("#destCountry").val();
-    let amount = $("#amount").val();
-    let flexibility = $("#flexibility").val();
-    let deadline = $("#deadline").val();
+    var srcCountry = $("#srcCountry").val();
+    var destCountry = $("#destCountry").val();
+    var amount = $("#amount").val();
+    var flexibility = $("#flexibility").val();
+    var deadline = $("#deadline").val();
 
 
-    let firebaseRef = firebase.database().ref(firebase.auth().currentUser.uid);
+    var firebaseRef = firebase.database().ref(firebase.auth().currentUser.uid);
     firebaseRef.once('value').then(function(snapshot) {
         if(!snapshot.exists())
             return;
 
-        let requestCount = snapshot.val().requestCount;
+        //TODO: requests not saving properly in database
+        var requestCount = snapshot.val().requestCount;
+        console.log(requestCount);
         firebaseRef.child("/requests/req" + requestCount).set({
             srcCountry: srcCountry,
             destCountry: destCountry,

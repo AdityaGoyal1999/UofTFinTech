@@ -25,42 +25,41 @@
 //
 //     });
 // })
-$(function(){
-    // initializeFirebaseApp();
-
-    unmatchedCountry = [];
-    let firebaseRef = firebase.database().ref();
-    console.log("Over here");
-    console.log(firebaseRef);
-    firebaseRef.once('value').then(function(snapshot){
-        let snap = snapshot.val();
-        for(var i in snap){
-            // console.log("\n"+i);
-            for(var j in snap[i])
-            {
-                // console.log("\n"+j);
-                if(j === "requests") {
-                    // console.log(snap[i][j]);
-                    for (var k in snap[i][j]) {
-                        // TODO: Add approprite if conditions collect data
-                        // console.log(snap[i][j][k])
-                        // if(destCountry === "Angola")
-                        // {
-                        //     unmatchedCountry.push(snap[i][j]);
-                        //     console.log(unmatchedCountry);
+$(function() {
+        // initializeFirebaseApp();
+        // TODO: has to send in the location of the user to the function
+        var countryLocation = "Angola";
+        //TODO: has to get the UID of the customer
+        var uid;
+        unmatchedCountry = [];
+        let firebaseRef = firebase.database().ref();
+        console.log(firebaseRef);
+        firebaseRef.once('value').then(function (snapshot) {
+            let snap = snapshot.val();
+            // i is the userid of the user
+            for (var i in snap) {
+                if(i === uid)
+                {
+                    // user won't be able to get his own request
+                    continue;
+                }
+                for (var j in snap[i]) {
+                    if (j === "requests") {
+                        for (var k in snap[i][j]) {
+                            for(var l in snap[i][j][k])
+                            {
+                                if(l === "destCountry" && snap[i][j][k]["destCountry"] === countryLocation)
+                                {
+                                    unmatchedCountry.push(i+"/"+j+"/"+k+"/");
+                                }
+                                else{
+                                }
+                            }
+                        }
                     }
                 }
-                }
             }
-        }
-    // if(!snapshot.exists())
-    //     return;
-    //
-    // for(var uid in uoftfintech)
-    // {
-    //     var user = users[uid];
-    //     console.alert(user);
-    // }
+            console.log(unmatchedCountry);
+        })
     }
-    )
-})
+);
