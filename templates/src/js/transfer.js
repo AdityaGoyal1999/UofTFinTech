@@ -17,27 +17,24 @@ function saveRequest() {
     // Minor error handling statements
     if (srcCountry === destCountry) {
         window.alert("Couldn't be transfered to the same country");
-    }
-    else {
+    } else {
+        var firebaseRef = firebase.database().ref(firebase.auth().currentUser.uid);
+        firebaseRef.once('value').then(function (snapshot) {
+            if (!snapshot.exists())
+                return;
 
-
-            var firebaseRef = firebase.database().ref(firebase.auth().currentUser.uid);
-            firebaseRef.once('value').then(function (snapshot) {
-                if (!snapshot.exists())
-                    return;
-
-                //TODO: requests not saving properly in database
-                var requestCount = snapshot.val().requestCount;
-                console.log(requestCount);
-                firebaseRef.child("/requests/req" + requestCount).set({
-                    srcCountry: srcCountry,
-                    destCountry: destCountry,
-                    amount: amount,
-                    flexibility: flexibility,
-                    deadline: deadline,
-                    match: "null"
-                });
-                firebaseRef.child("/requestCount").set(requestCount + 1);
+            //TODO: requests not saving properly in database
+            var requestCount = snapshot.val().requestCount;
+            console.log(requestCount);
+            firebaseRef.child("/requests/req" + requestCount).set({
+                srcCountry: srcCountry,
+                destCountry: destCountry,
+                amount: amount,
+                flexibility: flexibility,
+                deadline: deadline,
+                match: "null"
             });
-        }
+            firebaseRef.child("/requestCount").set(requestCount + 1);
+        });
+    }
 }

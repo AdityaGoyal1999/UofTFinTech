@@ -31,7 +31,6 @@ $(function() {
         var countryLocation = "Angola";
         //TODO: has to get the UID of the customer
         var uid;
-        console.log("The matching is happening");
         unmatchedCountry = [];
         let firebaseRef = firebase.database().ref();
         console.log(firebaseRef);
@@ -60,7 +59,6 @@ $(function() {
                     }
                 }
             }
-            // console.log(unmatchedCountry);
         })
     }
 );
