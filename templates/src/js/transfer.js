@@ -2,29 +2,42 @@ $(function(){
     initializeFirebaseApp();
 });
 
-function saveRequest()
-{
-    let srcCountry = $("#srcCountry").val();
-    let destCountry = $("#destCountry").val();
-    let amount = $("#amount").val();
-    let flexibility = $("#flexibility").val();
-    let deadline = $("#deadline").val();
+/**
+ * matched - Means that a request is matched.
+ * pending - Means that a request is pending.
+ * withdrawn - Means that the request has been removed.
+ */
+function saveRequest() {
+    var srcCountry = $("#srcCountry").val();
+    var destCountry = $("#destCountry").val();
+    var amount = $("#amount").val();
+    var flexibility = $("#flexibility").val();
+    var deadline = $("#deadline").val();
+
+    // Minor error handling statements
+    if (srcCountry === destCountry) {
+        window.alert("Couldn't be transfered to the same country");
+    }
+    else {
 
 
-    let firebaseRef = firebase.database().ref(firebase.auth().currentUser.uid);
-    firebaseRef.once('value').then(function(snapshot) {
-        if(!snapshot.exists())
-            return;
+            var firebaseRef = firebase.database().ref(firebase.auth().currentUser.uid);
+            firebaseRef.once('value').then(function (snapshot) {
+                if (!snapshot.exists())
+                    return;
 
-        let requestCount = snapshot.val().requestCount;
-        firebaseRef.child("/requests/req" + requestCount).set({
-            srcCountry: srcCountry,
-            destCountry: destCountry,
-            amount: amount,
-            flexibility: flexibility,
-            deadline: deadline,
-            match: "null"
-        });
-        firebaseRef.child("/requestCount").set(requestCount + 1);
-    });
+                //TODO: requests not saving properly in database
+                var requestCount = snapshot.val().requestCount;
+                console.log(requestCount);
+                firebaseRef.child("/requests/req" + requestCount).set({
+                    srcCountry: srcCountry,
+                    destCountry: destCountry,
+                    amount: amount,
+                    flexibility: flexibility,
+                    deadline: deadline,
+                    match: "null"
+                });
+                firebaseRef.child("/requestCount").set(requestCount + 1);
+            });
+        }
 }
