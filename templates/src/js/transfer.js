@@ -17,7 +17,13 @@ function saveRequest() {
     // Minor error handling statements
     if (srcCountry === destCountry) {
         window.alert("Couldn't be transfered to the same country");
-    } else {
+    }
+    else if(amount%10 !== 0)
+    {
+        window.alert("Has to be in denominations of 10s");
+    }
+
+    else {
         var firebaseRef = firebase.database().ref(firebase.auth().currentUser.uid);
         firebaseRef.once('value').then(function (snapshot) {
             if (!snapshot.exists())
