@@ -8,6 +8,10 @@ $(function(){
  * withdrawn - Means that the request has been removed.
  */
 function saveRequest() {
+    let uid = firebase.auth().currentUser.uid;
+    let db = firebase.firestore();
+    let dateToTimestamp = firebase.firestore.Timestamp.fromDate;
+
     var srcCountry = $("#srcCountry").val();
     var destCountry = $("#destCountry").val();
     var amount = $("#amount").val();
@@ -17,30 +21,24 @@ function saveRequest() {
     // Minor error handling statements
     if (srcCountry === destCountry) {
         window.alert("Couldn't be transfered to the same country");
-    }
-    else if(amount%10 !== 0)
-    {
+    } else if(amount%10 !== 0) {
         window.alert("Has to be in denominations of 10s");
-    }
-
-    else {
-        var firebaseRef = firebase.database().ref(firebase.auth().currentUser.uid);
-        firebaseRef.once('value').then(function (snapshot) {
-            if (!snapshot.exists())
-                return;
-
-            //TODO: requests not saving properly in database
-            var requestCount = snapshot.val().requestCount;
-            console.log(requestCount);
-            firebaseRef.child("/requests/req" + requestCount).set({
-                srcCountry: srcCountry,
-                destCountry: destCountry,
-                amount: amount,
-                flexibility: flexibility,
-                deadline: deadline,
-                match: "null"
-            });
-            firebaseRef.child("/requestCount").set(requestCount + 1);
+    } else {
+        db.collection("requests").add({
+            user: uid,
+            srcCountry: srcCountry,
+            destCountry: destCountry,
+            submitDate: dateToTimestamp(new Date()),
+            deadlineDate: dateToTimestamp(new Date(deadline)),
+            amount: parseInt(amount),
+            flexibility: parseInt(flexibility),
+            status: "pending",
+            potentialMatches: [],
+            matchedRequest: ""
+        }).then(function(docRef) {
+            console.log("Document written with ID: ", docRef.id);
+        }).catch(function(error) {
+            console.error("Error adding document: ", error);
         });
     }
 }

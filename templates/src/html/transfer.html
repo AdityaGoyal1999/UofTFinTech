@@ -7,7 +7,7 @@
     <script src="../../import/js/jquery-3.4.1.min.js"></script>
     <script src="../../import/js/firebase-app.js"></script>
     <script src="../../import/js/firebase-auth.js"></script>
-    <script src="../../import/js/firebase-database.js"></script>
+    <script src="../../import/js/firebase-firestore.js"></script>
     <script src="../js/firebaseConfig.js"></script>
     <script src="../js/transfer.js"></script>
 
@@ -285,10 +285,10 @@
         <br>
         Amount: <br>
         <input id="amount" type="text"> <br>
-        Deadline to get money: <br>
-        <input id="deadline" type="date"> <br>
         Flexibility to get money: <br>
-        <input id="flexibility" type="text"> <br><br>
+        <input id="flexibility" type="text"> <br>
+        Deadline to get money: <br>
+        <input id="deadline" type="date"> <br><br>
     <button style="padding: 10px;" type="submit" onclick="saveRequest()">Submit Request</button>
     </div>
 

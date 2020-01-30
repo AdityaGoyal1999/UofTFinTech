@@ -12,4 +12,6 @@ function initializeFirebaseApp()
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+    firebase.auth();
+    firebase.firestore();
 }
