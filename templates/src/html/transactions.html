@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <title>Transactions</title>
 
-    <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+    <script src="../../import/js/jquery-3.4.1.min.js"></script>
+    <script src="../../import/js/firebase-app.js"></script>
+    <script src="../../import/js/firebase-auth.js"></script>
+    <script src="../../import/js/firebase-firestore.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/ui/4.0.0/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.0.0/firebase-ui-auth.css" />
@@ -19,9 +16,7 @@
 
     <!-- OUR CODE -->
     <script src="../js/firebaseConfig.js"></script>
-    <script src="../js/user.js"></script>
-    <script src="../js/database.js"></script>
-    <script src="../js/matching.js"></script>
+    <script src="../js/transactions.js"></script>
 
     <!--IMPORTS-->
     <link rel="stylesheet" href="../../import/css/bootstrap.min.css">
@@ -40,9 +35,25 @@
 
     <div style="margin-top: 100px; margin-left: 20px;">
     <h2>Your transactions</h2>
-    <p id="transaction"></p>
 
-    <script src="../js/transactions.js"></script>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Date of Request</th>
+                <th scope="col">Source Country</th>
+                <th scope="col">Destination Country</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Flexibility</th>
+                <th scope="col">Status</th>
+                <th scope="col">Deadline</th>
+            </tr>
+            </thead>
+            <tbody id="table-body">
+
+
+
+            </tbody>
+        </table>
     </div>
 
 
