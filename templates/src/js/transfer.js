@@ -29,6 +29,7 @@ function saveRequest() {
             srcCountry: srcCountry,
             destCountry: destCountry,
             submitDate: dateToTimestamp(new Date()),
+            lastCheckDate: dateToTimestamp(new Date()),
             deadlineDate: dateToTimestamp(new Date(deadline)),
             amount: parseInt(amount),
             flexibility: parseInt(flexibility),
