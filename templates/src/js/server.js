@@ -11,28 +11,32 @@ $(function(){
     });
 });
 
-function findNewMatches(doc, dbRef){
-    logHTML("FINDING MATCHES FOR " + doc.id);
+function findNewMatches(srcDoc, dbRef){
+    logHTML("FINDING MATCHES FOR " + srcDoc.id);
 
     let fbFieldValue = firebase.firestore.FieldValue;
     let dateToTimestamp = firebase.firestore.Timestamp.fromDate;
     let currentTimestamp = dateToTimestamp(new Date());
-    let requestRef = dbRef.doc(doc.id);
-    let request = doc.data();
+    let requestRef = dbRef.doc(srcDoc.id);
+    let request = srcDoc.data();
 
     dbRef.where("srcCountry", "==", request.destCountry)
-    .where("destCountry", "==", request.srcCountry) // TODO: Fix so that we only query requests submitted before lastCheckDate
+        .where("destCountry", "==", request.srcCountry)
+        .where("submitDate", ">=", request.lastCheckDate)
     .get().then(function(snapshot){
         let matchCount = 0;
-        snapshot.forEach(function(doc){
-            if(validMatch(request, doc.data())){
+        snapshot.forEach(function(targetDoc){
+            if(validMatch(request, targetDoc.data())){
                 requestRef.update({
-                    potentialMatches: fbFieldValue.arrayUnion(doc.id)
+                    potentialMatches: fbFieldValue.arrayUnion(targetDoc.id)
+                });
+                dbRef.doc(targetDoc.id).update({
+                    potentialMatches: fbFieldValue.arrayUnion(srcDoc.id)
                 });
                 matchCount++;
             }
         });
-        logHTML("FOUND " + matchCount + " MATCHES FOR " + doc.id);
+        logHTML("FOUND " + matchCount + " MATCHES FOR " + srcDoc.id);
     }).catch(function(error){
         console.log("Error getting documents: ", error);
     });

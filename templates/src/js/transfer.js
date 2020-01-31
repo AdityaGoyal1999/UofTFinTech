@@ -10,13 +10,13 @@ $(function(){
 function saveRequest() {
     let uid = firebase.auth().currentUser.uid;
     let db = firebase.firestore();
-    let dateToTimestamp = firebase.firestore.Timestamp.fromDate;
+    let Timestamp = firebase.firestore.Timestamp;
 
-    var srcCountry = $("#srcCountry").val();
-    var destCountry = $("#destCountry").val();
-    var amount = $("#amount").val();
-    var flexibility = $("#flexibility").val();
-    var deadline = $("#deadline").val();
+    let srcCountry = $("#srcCountry").val();
+    let destCountry = $("#destCountry").val();
+    let amount = $("#amount").val();
+    let flexibility = $("#flexibility").val();
+    let deadline = $("#deadline").val();
 
     // Minor error handling statements
     if (srcCountry === destCountry) {
@@ -28,9 +28,9 @@ function saveRequest() {
             user: uid,
             srcCountry: srcCountry,
             destCountry: destCountry,
-            submitDate: dateToTimestamp(new Date()),
-            lastCheckDate: dateToTimestamp(new Date()),
-            deadlineDate: dateToTimestamp(new Date(deadline)),
+            submitDate: Timestamp.fromDate(new Date()),
+            lastCheckDate: new Timestamp(1, 0),
+            deadlineDate: Timestamp.fromDate(new Date(deadline)),
             amount: parseInt(amount),
             flexibility: parseInt(flexibility),
             status: "pending",
