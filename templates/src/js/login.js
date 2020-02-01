@@ -19,7 +19,7 @@ $(function() {
         tosUrl: '',
         // Privacy policy url/callback.
         privacyPolicyUrl: function () {
-            window.location.assign('login.html');
+            window.location.assign('index.html');
         },
         signInFlow: "popup"
     };

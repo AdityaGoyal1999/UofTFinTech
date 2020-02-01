@@ -1,0 +1,9 @@
+.div1{
+    margin-top: 100px;
+    margin-left: 20px;
+}
+
+#profilePic{
+    width:128px;
+    border-radius: 50%;
+}

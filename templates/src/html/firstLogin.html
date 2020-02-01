@@ -27,18 +27,19 @@
     <link rel="stylesheet" href="../../import/css/bootstrap.min.css">
     <script src="../../import/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/firstLogin.css">
 </head>
 <body>
-    <header class="fixed-top" style="background-color: #007bff;">
+    <header class="fixed-top">
         <a href="index.html" class="logo">LOGO</a>
         <div class="company-options">
             <a href="AboutUs.html"><button>About</button></a>
             <a href="Contact.html"><button>Contact</button></a>
         </div>
     </header>
-    <h1 style="margin-top: 80px; text-align: center">Enter your information</h1>
-    <div style="margin-left:20px;">
+    <h1 id="heading1">Enter your information</h1>
+    <div id="para1">
         <input type="file" id="picture"><br>
         Name:<br>
         <input type="text" id="name"><br>
@@ -52,8 +53,8 @@
         <input type="date" id="dob"><br><br>
         <input type="submit" onclick="savePrimaryData()">
     </div>
-    <footer class="fixed-bottom" style="background-color: #007bff;">
-        <a href="mailto:#" style="color: black;">Email us</a>
+    <footer class="fixed-bottom">
+        <a id="EmailUs" href="mailto:#">Email us</a>
     </footer>
 </body>
 </html>
