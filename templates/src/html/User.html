@@ -6,11 +6,6 @@
     <title>User</title>
     <!-- Font Awesome Icon Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        .checked {
-            color: orange;
-        }
-    </style>
 
     <!-- CDN IMPORTS -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -25,6 +20,10 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
     <!-- OUR CODE -->
+    <link rel="stylesheet" href="../../import/css/bootstrap.min.css">
+    <script src="../../import/js/bootstrap.min.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="../css/base.css" />
     <link type="text/css" rel="stylesheet" href="../css/user.css" />
 
     <script src="../js/firebaseConfig.js"></script>
@@ -33,91 +32,30 @@
 </head>
 
 <body>
-    <!--<header class="fixed-top" style="background-color: #007bff;">-->
-        <!--<a href="index.html" class="logo">LOGO</a>-->
-        <!--<div class="company-options">-->
-            <!--<a href="AboutUs.html"><button>About</button></a>-->
-            <!--<a href="Contact.html"><button>Contact</button></a>-->
-        <!--</div>-->
-    <!--</header>-->
-    <h2>Welcome to your dashboard!</h2>
-    <!--<a href="CompleteUserInfo.html">User Info</a>-->
-    <div class="user-profile">
-        <!--Change this information according to the user-->
-        <h2><u>Your mini dashboard</u></h2>
-        <img id="profilePic" src="" alt="User's Profile Picture" style="width:128px; border-radius:50%">
-        <br>
-        <h1 id="usernameHeader">{User name}</h1>
-        <p id="userEmail">{Location}</p><br>
-
-
-        <div id="stars">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <p id="ratingValue"></p>
+    <header class="fixed-top">
+        <a href="index.html" class="logo">LOGO</a>
+        <div class="company-options">
+            <a href="AboutUs.html"><button>About</button></a>
+            <a href="Contact.html"><button>Contact</button></a>
         </div>
+    </header>
+    <h1>Welcome to your dashboard!</h1>
+    <div class="user-profile">
+        <h2><u>Your mini dashboard</u></h2>
+        <img id="profilePic" src="" alt="Your Profile Picture">
+        <br>
+        <h2 id="usernameHeader">{User name}</h2>
+        <br>
+        <p id="userEmail">{Location}</p><br>
+        <a href="CompleteUserInfo.html"><button id="user-info">User Information</button></a>
     </div>
     <br>
-    <button id="user-info"><a href="CompleteUserInfo.html">User Information</a></button>
-    <button id="send-button"><a href="transfer.html">Send money</a></button>
-    <button id="transactions"><a href="transactions.html">Transactions</a></button>
-    </div>
+    <a href="transfer.html"><button id="send-button">Send money</button></a>
+    <a href="transactions.html"><button id="transactions">Transactions</button></a>
 
-    <!--TODO: Implement the Headers and Footers properly-->
-    <!--<footer class="fixed-bottom" style="background-color: #007bff;">-->
-        <!--<a href="mailto:#" style="color: black;">Email us</a>-->
-    <!--</footer>-->
-
-    <!--<script>-->
-        <!--document.getElementById("ratingValue").innerHTML = "(" + getRating() + ")";-->
-
-        <!--function getStar(whichStar) {-->
-            <!--var starRating = 0.0;-->
-            <!--if (whichStar === "first") {-->
-                <!--if (starRating >= 1.0)-->
-                    <!--return "fa fa-star checked";-->
-                <!--else-->
-                    <!--return "fa fa-star";-->
-            <!--} else if (whichStar === "second") {-->
-                <!--if (starRating >= 2.0)-->
-                    <!--return "fa fa-star checked";-->
-                <!--else-->
-                    <!--return "fa fa-star";-->
-            <!--} else if (whichStar === "third") {-->
-                <!--if (starRating >= 3.0)-->
-                    <!--return "fa fa-star checked";-->
-                <!--else-->
-                    <!--return "fa fa-star";-->
-            <!--} else if (whichStar === "fourth") {-->
-                <!--if (starRating >= 4.0)-->
-                    <!--return "fa fa-star checked";-->
-                <!--else-->
-                    <!--return "fa fa-star";-->
-            <!--} else {-->
-                <!--if (starRating >= 5.0)-->
-                    <!--return "fa fa-star checked";-->
-                <!--else-->
-                    <!--return "fa fa-star";-->
-            <!--}-->
-        <!--}-->
-
-        <!--function sendMoney() {-->
-            <!--// alert("Money send protocol initiated");-->
-        <!--}-->
-
-        <!--function receiveMoney() {-->
-            <!--// alert("Receiving money protocol received");-->
-        <!--}-->
-
-        <!--function getRating() {-->
-            <!--// Need to connect the data base to the rating-->
-            <!--var rating = "4.0";-->
-            <!--return rating;-->
-        <!--}-->
-    <!--</script>-->
+    <footer class="fixed-bottom">
+        <a id="EmailUs" href="mailto:#">Email us</a>
+    </footer>
 </body>
 
 </html>
