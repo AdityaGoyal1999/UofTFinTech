@@ -1,3 +1,5 @@
+var requestGlobal;
+
 $(function(){
     initializeFirebaseApp();
 
@@ -27,16 +29,23 @@ function displayTransactions(){
         });
 }
 
-function appendRequest(request){
+// function transferInfo(requestInfo)
+// {
+//     requestGlobal = ;
+// }
+
+function appendRequest(requestInfo){
+
+    // window.alert(requestInfo);
     $("#table-body").append("" +
         "            <tr>\n" +
-        "                <th scope=\"row\">"+ "<a href='Matches.html' onclick='sendInfo(request)'>" + request.submitDate.toDate().toGMTString() + "</th>\n" +
-        "                <td>" + request.srcCountry + "</td>\n" +
-        "                <td>" + request.destCountry + "</td>\n" +
-        "                <td>" + request.amount + "</td>\n" +
-        "                <td>" + request.flexibility + "</td>\n" +
-        "                <td>" + request.status + "</td>\n" +
-        "                <td>" + request.deadlineDate.toDate().toGMTString() + "</a>" + "</td>\n" +
+        "                <th scope=\"row\">"+ "<a href='Matches.html'>" + requestInfo.submitDate.toDate().toGMTString() + "</th>\n" +
+        "                <td>" + requestInfo.srcCountry + "</td>\n" +
+        "                <td>" + requestInfo.destCountry + "</td>\n" +
+        "                <td>" + requestInfo.amount + "</td>\n" +
+        "                <td>" + requestInfo.flexibility + "</td>\n" +
+        "                <td>" + requestInfo.status + "</td>\n" +
+        "                <td>" + requestInfo.deadlineDate.toDate().toGMTString() + "</a>" + "</td>\n" +
         "            </tr>");
 }
 
