@@ -30,12 +30,13 @@ function displayTransactions(){
 function appendRequest(request){
     $("#table-body").append("" +
         "            <tr>\n" +
-        "                <th scope=\"row\">" + request.submitDate.toDate().toGMTString() + "</th>\n" +
+        "                <th scope=\"row\">"+ "<a href='Matches.html' onclick='sendInfo(request)'>" + request.submitDate.toDate().toGMTString() + "</th>\n" +
         "                <td>" + request.srcCountry + "</td>\n" +
         "                <td>" + request.destCountry + "</td>\n" +
         "                <td>" + request.amount + "</td>\n" +
         "                <td>" + request.flexibility + "</td>\n" +
         "                <td>" + request.status + "</td>\n" +
-        "                <td>" + request.deadlineDate.toDate().toGMTString()  + "</td>\n" +
+        "                <td>" + request.deadlineDate.toDate().toGMTString() + "</a>" + "</td>\n" +
         "            </tr>");
 }
+

@@ -38,6 +38,7 @@ function saveRequest() {
             matchedRequest: ""
         }).then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
+            window.alert("Request Saved!")
         }).catch(function(error) {
             console.error("Error adding document: ", error);
         });
