@@ -1,8 +1,8 @@
 
 // TODO: Check if info is getting received
 let uid;
-function sendInfo(request)
+function sendInfo()
 {
-    uid = request;
-    $("#countryDemo").val(request.destCountry);
+    // window.alert(request.destCountry);
+    window.alert("Works");
 }
