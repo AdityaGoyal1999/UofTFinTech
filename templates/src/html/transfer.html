@@ -291,7 +291,23 @@
         <input id="flexibility" type="text"> <br>
         Deadline to get money: <br>
         <input id="deadline" type="date"> <br><br>
-    <button id="button1" type="submit" onclick="saveRequest()">Submit Request</button>
+    <button id="submitButton" type="submit" onclick="saveRequest()">Submit Request</button>
+    </div>
+
+    <div class="modal fade" id="submissionModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="submissionModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Request Submission</h5>
+                </div>
+                <div class="modal-body">
+                    Request has been submitted.
+                </div>
+                <div class="modal-footer">
+                    <a type="button" href="User.html" class="btn btn-primary">Dashboard</a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer class="fixed-bottom">

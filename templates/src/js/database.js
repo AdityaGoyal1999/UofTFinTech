@@ -1,4 +1,4 @@
-function saveData(email, name, uid)
+function saveUser(email, name, uid)
 {
     let db = firebase.firestore();
 
