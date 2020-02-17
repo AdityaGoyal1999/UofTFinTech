@@ -32,7 +32,7 @@
 </head>
 
 <body>
-    <?php include("includes/header.html" ?>
+    <?php include("includes/header.php"); ?>
 
     <h1>Welcome to your dashboard!</h1>
     <div class="user-profile">
@@ -48,7 +48,7 @@
     <a href="transfer.html"><button id="send-button">Send money</button></a>
     <a href="transactions.html"><button id="transactions">Transactions/Requests</button></a>
 
-    <?php include("includes/footer.html" ?>
+    <?php include("includes/footer.php"); ?>
 </body>
 
 </html>
