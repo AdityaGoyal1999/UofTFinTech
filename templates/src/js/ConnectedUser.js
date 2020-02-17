@@ -11,7 +11,8 @@ $(function(){
     docRef.get().then(function(doc) {
         if (doc.exists) {
 
-            // $("#profilePic").attr("src", doc.data().);
+            // // TODO: Using user.js value. Change this to the url mentioned by the user.
+            // $("#profilePic").attr("src", photoURL);
             $("#usernameHeader").html(doc.data().name);
             $("#userEmail").html(doc.data().email);
 

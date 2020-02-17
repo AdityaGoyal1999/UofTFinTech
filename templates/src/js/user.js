@@ -15,6 +15,7 @@ $(function() {
             //TODO: Only save if user doesn't exist
             saveData(email, displayName, uid);
 
+
             $("#profilePic").attr("src", photoURL);
             $("#usernameHeader").html(displayName);
             $("#userEmail").html(email);

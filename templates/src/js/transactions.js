@@ -29,10 +29,6 @@ function displayTransactions(){
         });
 }
 
-// function transferInfo(requestInfo)
-// {
-//     requestGlobal = ;
-// }
 
 function appendRequest(requestDoc){
 

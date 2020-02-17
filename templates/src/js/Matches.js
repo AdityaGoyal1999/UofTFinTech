@@ -12,6 +12,10 @@ $(function(){
     docRef.get().then(function(doc) {
         if (doc.exists) {
             let potentialMatches = doc.data().potentialMatches;
+            if(potentialMatches.length === 0)
+            {
+                $("#end-of-results").html("No matches found at the moment. Try again in a bit");
+            }
             for(var i = 0; i < potentialMatches.length; i++)
             {
                 displayPotentialMatches(potentialMatches[i]);
@@ -56,24 +60,4 @@ function displayPotentialMatches(matchUid)
     }).catch(function(error) {
         console.log("Error getting document:", error);
     });
-}
-
-function fetchName(userUid)
-{
-    let db = firebase.firestore();
-    let docRef = db.collection("users").doc(userUid);
-    let name = null;
-    docRef.get().then(function(doc) {
-        if (doc.exists) {
-            // console.log(doc.data().name);
-            name = doc.data().name;
-            return name;
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function(error) {
-        console.log("Error getting document:", error);
-    });
-    return name;
 }
