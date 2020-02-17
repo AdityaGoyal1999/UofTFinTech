@@ -8,6 +8,8 @@ $(function(){
  * withdrawn - Means that the request has been removed.
  */
 function saveRequest() {
+    $("#submitButton").attr("disabled", true);
+
     let uid = firebase.auth().currentUser.uid;
     let db = firebase.firestore();
     let Timestamp = firebase.firestore.Timestamp;
@@ -20,9 +22,11 @@ function saveRequest() {
 
     // Minor error handling statements
     if (srcCountry === destCountry) {
-        window.alert("Couldn't be transfered to the same country");
+        window.alert("You can't transfer to the same country.");
+        $("#submitButton").attr("disabled", false);
     } else if(amount%10 !== 0) {
-        window.alert("Has to be in denominations of 10s");
+        window.alert("Transaction amount has to be in denominations of 10s");
+        $("#submitButton").attr("disabled", false);
     } else {
         db.collection("requests").add({
             user: uid,
@@ -38,9 +42,11 @@ function saveRequest() {
             matchedRequest: ""
         }).then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
-            window.alert("Request Saved!")
+            $("#submissionModal").modal();
         }).catch(function(error) {
             console.error("Error adding document: ", error);
+            window.alert("An error occurred during request submission: " + error);
+            $("#submitButton").attr("disabled", false);
         });
     }
 }
