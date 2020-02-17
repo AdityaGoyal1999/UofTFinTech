@@ -36,10 +36,11 @@ function displayTransactions(){
 
 function appendRequest(requestInfo){
 
-    // window.alert(requestInfo);
+    // TODO: Send requestInfo's location in place of requestInfo.destCountry
+    // TODO: Change the hard coded value sent to Matches.html
     $("#table-body").append("" +
         "            <tr>\n" +
-        "                <th scope=\"row\">"+ "<a href='Matches.html'>" + requestInfo.submitDate.toDate().toGMTString() + "</th>\n" +
+        "                <th scope=\"row\">"+ "<a href='Matches.html" + "?srcCountry=" + "40jsNh3QUEWDHLjQcpFg" + "'" +" >" + requestInfo.submitDate.toDate().toGMTString() + "</th>\n" +
         "                <td>" + requestInfo.srcCountry + "</td>\n" +
         "                <td>" + requestInfo.destCountry + "</td>\n" +
         "                <td>" + requestInfo.amount + "</td>\n" +
