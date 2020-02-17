@@ -9,6 +9,9 @@ $(function(){
 
     let db = firebase.firestore();
     let docRef = db.collection("requests").doc(reqID);
+
+    // to get the uid
+    let senderId = urlParams.get("userId");
     docRef.get().then(function(doc) {
         if (doc.exists) {
             let potentialMatches = doc.data().potentialMatches;
@@ -18,7 +21,7 @@ $(function(){
             }
             for(var i = 0; i < potentialMatches.length; i++)
             {
-                displayPotentialMatches(potentialMatches[i]);
+                displayPotentialMatches(potentialMatches[i], senderId);
             }
         } else {
             // doc.data() will be undefined in this case
@@ -29,7 +32,7 @@ $(function(){
     });
 });
 
-function displayPotentialMatches(matchUid)
+function displayPotentialMatches(matchUid, senderId)
 {
     let db = firebase.firestore();
     let docRef = db.collection("requests").doc(matchUid);
@@ -40,7 +43,7 @@ function displayPotentialMatches(matchUid)
                 if (reqDoc.exists) {
                     $("#matches-table-body").append("" +
                         "            <tr>\n" +
-                        "                <th scope=\"row\">" + "<a href='ConnectedUser.html" + "?userId=" + reqDoc.data().user + "'>" + userDoc.data().name + "</a>" + "</th>\n" +
+                        "                <th scope=\"row\">" + "<a href='ConnectedUser.html" + "?receiverId=" + reqDoc.data().user + "&senderId="+ senderId + "'>" + userDoc.data().name + "</a>" + "</th>\n" +
                         "                <td>"+ reqDoc.data().submitDate.toDate().toGMTString() +"</td>" +
                         "                <td>" + reqDoc.data().amount + "</td>\n" +
                         "                <td>" + (reqDoc.data().amount-reqDoc.data().flexibility) + " or " + (reqDoc.data().amount+reqDoc.data().flexibility) +"</td>" +
