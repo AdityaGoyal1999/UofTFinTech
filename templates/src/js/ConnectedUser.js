@@ -1,7 +1,10 @@
 $(function(){
-    let userId = document.location.search.replace(/^.*?\=/, "");
+    initializeFirebaseApp();
 
-    console.log(userId);
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    let userId = urlParams.get("userId");
+
     let db = firebase.firestore();
     let docRef = db.collection("users").doc(userId);
 

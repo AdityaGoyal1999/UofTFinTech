@@ -3,10 +3,12 @@
 
 // TODO: Access the values of the pending users
 $(function(){
-    let uid = document.location.search.replace(/^.*?\=/, "");
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    let reqID = urlParams.get("reqID");
 
     let db = firebase.firestore();
-    let docRef = db.collection("requests").doc(uid);
+    let docRef = db.collection("requests").doc(reqID);
     docRef.get().then(function(doc) {
         if (doc.exists) {
             let potentialMatches = doc.data().potentialMatches;
@@ -27,20 +29,30 @@ function displayPotentialMatches(matchUid)
 {
     let db = firebase.firestore();
     let docRef = db.collection("requests").doc(matchUid);
-    docRef.get().then(function(doc) {
-        if (doc.exists) {
-            $("#matches-table-body").append("" +
-                "            <tr>\n" +
-                "                <th scope=\"row\">" + "<a href='ConnectedUser.html" + "?userId=" + doc.data().user + "'>" + fetchName(doc.data().user) + "</a>" + "</th>\n" +
-                "                <td>"+ doc.data().submitDate.toDate().toGMTString() +"</td>" +
-                "                <td>" + doc.data().amount + "</td>\n" +
-                "                <td>" + (doc.data().amount-doc.data().flexibility) + " or " + (doc.data().amount+doc.data().flexibility) +"</td>" +
-                "                <td>" + doc.data().deadlineDate.toDate().toGMTString() + "</td>\n" +
-                "            </tr>");
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
+    docRef.get().then(function(reqDoc) {
+        let userRef = db.collection("users").doc(reqDoc.data().user);
+        userRef.get().then(function(userDoc) {
+            if (userDoc.exists) {
+                if (reqDoc.exists) {
+                    $("#matches-table-body").append("" +
+                        "            <tr>\n" +
+                        "                <th scope=\"row\">" + "<a href='ConnectedUser.html" + "?userId=" + reqDoc.data().user + "'>" + userDoc.data().name + "</a>" + "</th>\n" +
+                        "                <td>"+ reqDoc.data().submitDate.toDate().toGMTString() +"</td>" +
+                        "                <td>" + reqDoc.data().amount + "</td>\n" +
+                        "                <td>" + (reqDoc.data().amount-reqDoc.data().flexibility) + " or " + (reqDoc.data().amount+reqDoc.data().flexibility) +"</td>" +
+                        "                <td>" + reqDoc.data().deadlineDate.toDate().toGMTString() + "</td>\n" +
+                        "            </tr>");
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                }
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch(function(error) {
+            console.log("Error getting document:", error);
+        });
     }).catch(function(error) {
         console.log("Error getting document:", error);
     });

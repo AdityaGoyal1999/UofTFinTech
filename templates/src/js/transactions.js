@@ -21,7 +21,7 @@ function displayTransactions(){
     ref.get()
         .then(function(snapshot) {
             snapshot.forEach(function(doc){
-                appendRequest(doc.data());
+                appendRequest(doc);
             });
         })
         .catch(function(error){
@@ -34,13 +34,14 @@ function displayTransactions(){
 //     requestGlobal = ;
 // }
 
-function appendRequest(requestInfo){
+function appendRequest(requestDoc){
 
     // TODO: Send requestInfo's location in place of requestInfo.destCountry
     // TODO: Change the hard coded value sent to Matches.html
+    let requestInfo = requestDoc.data();
     $("#table-body").append("" +
         "            <tr>\n" +
-        "                <th scope=\"row\">"+ "<a href='Matches.html" + "?srcCountry=" + "40jsNh3QUEWDHLjQcpFg" + "'" +" >" + requestInfo.submitDate.toDate().toGMTString() + "</th>\n" +
+        "                <th scope=\"row\">"+ "<a href='Matches.html" + "?reqID=" + requestDoc.id + "'" +" >" + requestInfo.submitDate.toDate().toGMTString() + "</th>\n" +
         "                <td>" + requestInfo.srcCountry + "</td>\n" +
         "                <td>" + requestInfo.destCountry + "</td>\n" +
         "                <td>" + requestInfo.amount + "</td>\n" +
