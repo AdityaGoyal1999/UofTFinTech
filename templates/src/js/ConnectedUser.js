@@ -9,6 +9,8 @@ $(function(){
     let db = firebase.firestore();
     let docRef = db.collection("users").doc(receiverId);
 
+    //TODO: This is not showing up in the link.
+    $("#messages-link").attr(href, "Messages.html?receiverId="+receiverId+"&senderId="+senderId);
     docRef.get().then(function(doc) {
         if (doc.exists) {
 
