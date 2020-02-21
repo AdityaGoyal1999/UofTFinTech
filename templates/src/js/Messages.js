@@ -56,5 +56,6 @@ function saveChat()
     let receiverId = urlParams.get("receiverId");
     let senderId = urlParams.get("senderId");
     window.alert("This is working");
-
+    let textMessage = $("#text-message").val();
+    // TODO: Save this message into the database
 }

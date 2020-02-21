@@ -12,6 +12,16 @@ function initializeFirebaseApp()
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+    // TODO: This error is coming which removes the authentication box.
+    // const messaging = firebase.messaging();
+    // messaging.requestPermission()
+    //     .then(function(){
+    //         console.log("Permission given");
+    //         return messsaging.getToken();
+    //     })
+    //     .catch(function(err){
+    //         console.log("Permission not given");
+    //     })
     firebase.auth();
     firebase.firestore;
 }
