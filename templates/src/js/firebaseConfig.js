@@ -23,5 +23,11 @@ function initializeFirebaseApp()
     //         console.log("Permission not given");
     //     })
     firebase.auth();
-    firebase.firestore;
+    firebase.firestore();
+
+    firebase.auth().onAuthStateChanged(function(user){
+        if(user && !user.emailVerified){
+            window.location.replace("verificationError.php");
+        }
+    });
 }

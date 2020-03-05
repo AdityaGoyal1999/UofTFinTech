@@ -1,5 +1,5 @@
 <header class="fixed-top">
-    <a href="User.html" class="logo">LOGO</a>
+    <a href="user.php" class="logo">LOGO</a>
 
     <div id="reactTest"></div>
 
