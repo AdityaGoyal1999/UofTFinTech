@@ -3,6 +3,7 @@ $(function() {
 
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
+            console.log(user);
             let displayName = user.displayName;
             let email = user.email;
             // could use this to check if the user has logged in successfully and then load his entry in the database

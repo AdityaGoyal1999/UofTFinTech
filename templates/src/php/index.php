@@ -21,7 +21,7 @@
 
     <!-- OUR CODE -->
     <script src="../js/firebaseConfig.js"></script>
-    <script src="../js/login.js"></script>
+    <script src="../js/newLogin.js"></script>
     <script src="../js/database.js"></script>
 
     <!--CSS Files-->

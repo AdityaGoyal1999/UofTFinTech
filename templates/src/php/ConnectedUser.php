@@ -47,7 +47,7 @@
     <h2 id="usernameHeader">{User name}</h2>
     <br>
     <p id="userEmail">{Location}</p><br>
-    <a href="Messages.html"><button id="message-user">Message User</button></a>
+    <a href="Messages.php"><button id="message-user">Message User</button></a>
 </div>
 
 <?php include("includes/footer.php"); ?>

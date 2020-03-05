@@ -297,7 +297,7 @@
                     Request has been submitted.
                 </div>
                 <div class="modal-footer">
-                    <a type="button" href="User.html" class="btn btn-primary">Dashboard</a>
+                    <a type="button" href="User.php" class="btn btn-primary">Dashboard</a>
                 </div>
             </div>
         </div>
