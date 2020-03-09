@@ -20,6 +20,12 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
 
+    <!-- OUR CODE -->
+    <script src="../js/firebaseConfig.js"></script>
+    <script>
+        initializeFirebaseApp();
+    </script>
+
     <!--CSS Files-->
     <link rel="stylesheet" href="../../import/css/bootstrap.min.css">
     <script src="../../import/js/bootstrap.min.js"></script>

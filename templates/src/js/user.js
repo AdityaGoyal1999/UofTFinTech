@@ -13,10 +13,6 @@ $(function() {
             let uid = user.uid;
             let providerData = user.providerData;
 
-            //TODO: Only save if user doesn't exist
-            saveUser(email, displayName, uid);
-
-
             $("#profilePic").attr("src", photoURL);
             $("#usernameHeader").html(displayName);
             $("#userEmail").html(email);
