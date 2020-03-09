@@ -19,9 +19,17 @@ function saveRequest() {
     let amount = $("#amount").val();
     let flexibility = $("#flexibility").val();
     let deadline = $("#deadline").val();
-
+    let receiverEmail = $("#receiver-email").val();
+    // The receiver should have an account with us
+    // TODO: Need to change the hard coded value of the receiver
+    // let receiverUid = getReceiverUid(receiverEmail);
+    let receiverUid = $("#receiver-uid").val();
     // Minor error handling statements
-    if (srcCountry === destCountry) {
+    if(srcCountry === "")
+    {
+        window.alert("Have to enter some information");
+    }
+    else if (srcCountry === destCountry ) {
         window.alert("You can't transfer to the same country.");
         $("#submitButton").attr("disabled", false);
     } else if(amount%10 !== 0) {
@@ -39,7 +47,8 @@ function saveRequest() {
             flexibility: parseInt(flexibility),
             status: "pending",
             potentialMatches: [],
-            matchedRequest: ""
+            matchedRequest: "",
+            receiver: receiverUid
         }).then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
             $("#submissionModal").modal();
@@ -49,4 +58,17 @@ function saveRequest() {
             $("#submitButton").attr("disabled", false);
         });
     }
+}
+
+function getReceiverUid(receiverEmail)
+{
+    let db = firebase.firestore();
+    let collection = db.collection("users").get();
+    console.log(collection);
+    // for(let i in collection)
+    // {
+    //     console.log(i);
+    //
+    // }
+
 }
