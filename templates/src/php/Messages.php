@@ -12,19 +12,10 @@
     <link type="text/css" rel="stylesheet" href="../css/Messages.css" />
 </head>
 <body>
-<header class="fixed-top">
-    <a href="User.html" class="logo">LOGO</a>
-    <div class="company-options">
-        <a href="Messages.html"><button>Messages</button></a>
-        <a href="AboutUs.html"><button>About</button></a>
-        <a href="Contact.html"><button>Contact</button></a>
-    </div>
-</header>
+<?php include("includes/header.php"); ?>
 
 <h1>Messages</h1>
 
-<footer class="fixed-bottom">
-    <a id="EmailUs" href="mailto:#">Email us</a>
-</footer>
+<?php include("includes/footer.php"); ?>
 </body>
 </html>

@@ -36,14 +36,9 @@
     <script src="../js/database.js"></script>
 </head>
 <body>
-<header class="fixed-top">
-    <a href="User.html" class="logo">LOGO</a>
-    <div class="company-options">
-        <a href="Messages.html"><button>Messages</button></a>
-        <a href="AboutUs.html"><button>About</button></a>
-        <a href="Contact.html"><button>Contact</button></a>
-    </div>
-</header>
+
+<?php include("includes/header.php"); ?>
+
 <h1>Welcome to this User's profile</h1>
 <div class="connected-user-profile">
     <h2><u>User's Profile</u></h2>
@@ -52,11 +47,10 @@
     <h2 id="usernameHeader">{User name}</h2>
     <br>
     <p id="userEmail">{Location}</p><br>
-    <a href="Messages.html"><button id="message-user">Message User</button></a>
+    <a href="Messages.php"><button id="message-user">Message User</button></a>
 </div>
 
-<footer class="fixed-bottom">
-    <a id="EmailUs" href="mailto:#">Email us</a>
-</footer>
+<?php include("includes/footer.php"); ?>
+
 </body>
 </html>

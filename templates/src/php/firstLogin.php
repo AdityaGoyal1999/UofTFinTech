@@ -31,14 +31,9 @@
     <link rel="stylesheet" href="../css/firstLogin.css">
 </head>
 <body>
-    <header class="fixed-top">
-        <a href="User.html" class="logo">LOGO</a>
-        <div class="company-options">
-            <a href="Messages.html"><button>Messages</button></a>
-            <a href="AboutUs.html"><button>About</button></a>
-            <a href="Contact.html"><button>Contact</button></a>
-        </div>
-    </header>
+
+    <?php include("includes/header.php"); ?>
+
     <h1 id="heading1">Enter your information</h1>
     <div id="para1">
         <input type="file" id="picture"><br>
@@ -54,8 +49,8 @@
         <input type="date" id="dob"><br><br>
         <input type="submit" onclick="savePrimaryData()">
     </div>
-    <footer class="fixed-bottom">
-        <a id="EmailUs" href="mailto:#">Email us</a>
-    </footer>
+
+    <?php include("includes/footer.php"); ?>
+
 </body>
 </html>

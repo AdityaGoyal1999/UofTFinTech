@@ -13,21 +13,16 @@
 
 </head>
 <body>
-    <header class="fixed-top">
-        <a href="User.html" class="logo">LOGO</a>
-        <div class="company-options">
-            <a href="Messages.html"><button>Messages</button></a>
-            <a href="AboutUs.html"><button>About</button></a>
-            <a href="Contact.html"><button>Contact</button></a>
-        </div>
-    </header>
+
+    <?php include("includes/header.php"); ?>
+
     <p id="p1">We are a Financial Technology Startup aimed to connect people with other people to ease
     the process of transfering money internationally. <br>
     By using our matching services, you can find another person who you can send/transfer money to. <br>
     Moreover, using our service is completely safe and prevents you from incurring loss by constantly changing monetary
         rates and also it will save the transaction fees that other companies take away from you.</p>
-    <footer class="fixed-bottom" style="background-color: #007bff;">
-        <a id="EmailUs" href="mailto:#">Email us</a>
-    </footer>
+
+    <?php include("includes/footer.php"); ?>
+
 </body>
 </html>

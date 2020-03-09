@@ -19,14 +19,7 @@
     <link rel="stylesheet" href="../css/transfer.css">
 </head>
 <body>
-    <header class="fixed-top">
-        <a href="User.html" class="logo">LOGO</a>
-        <div class="company-options">
-            <a href="Messages.html"><button>Messages</button></a>
-            <a href="AboutUs.html"><button>About</button></a>
-            <a href="Contact.html"><button>Contact</button></a>
-        </div>
-    </header>
+    <?php include("includes/header.php"); ?>
 
     <div id="p1">
     <h1>Request Money Transactions</h1>
@@ -304,14 +297,12 @@
                     Request has been submitted.
                 </div>
                 <div class="modal-footer">
-                    <a type="button" href="User.html" class="btn btn-primary">Dashboard</a>
+                    <a type="button" href="User.php" class="btn btn-primary">Dashboard</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="fixed-bottom">
-        <a href="mailto:#" id="EmailUs">Email us</a>
-    </footer>
+    <?php include("includes/footer.php"); ?>
 </body>
 </html>

@@ -19,10 +19,6 @@
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
-    <!-- OUR CODE -->
-    <script src="../js/firebaseConfig.js"></script>
-    <script src="../js/login.js"></script>
-    <script src="../js/database.js"></script>
 
     <!--CSS Files-->
     <link rel="stylesheet" href="../../import/css/bootstrap.min.css">
@@ -32,17 +28,12 @@
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-<header class="fixed-top">
-    <a href="index.html" class="logo">LOGO</a>
-    <div class="company-options">
-        <a href="AboutUs.html"><button>About</button></a>
-        <a href="Contact.html"><button>Contact</button></a>
-    </div>
-</header>
-<h1 id="heading1">Welcome to UofTFinTech</h1>
-<div id="firebaseui-auth-container"></div>
-<footer class="fixed-bottom">
-    <a id="EmailUs" href="mailto:#">Email us</a>
-</footer>
+
+<?php include("includes/header.php"); ?>
+
+<h1 id="heading1">Please verify your email to start using our services.</h1>
+
+<?php include("includes/footer.php"); ?>
+
 </body>
 </html>

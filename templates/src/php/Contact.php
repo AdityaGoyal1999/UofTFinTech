@@ -11,18 +11,13 @@
     <link rel="stylesheet" href="../css/Contact.css">
 </head>
 <body>
-    <header class="fixed-top">
-        <a href="User.html" class="logo">LOGO</a>
-        <div class="company-options">
-            <a href="Messages.html"><button>Messages</button></a>
-            <a href="AboutUs.html"><button>About</button></a>
-            <a href="Contact.html"><button>Contact</button></a>
-        </div>
-    </header>
+
+    <?php include("includes/header.php"); ?>
+
     <p id="p1">You can contact us on through our email...<br>
     More on contact information is coming up!</p>
-    <footer class="fixed-bottom">
-        <a id="EmailUs" href="mailto:#">Email us</a>
-    </footer>
+
+    <?php include("includes/footer.php"); ?>
+
 </body>
 </html>

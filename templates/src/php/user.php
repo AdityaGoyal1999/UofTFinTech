@@ -42,11 +42,11 @@
         <h2 id="usernameHeader">{User name}</h2>
         <br>
         <p id="userEmail">{Location}</p><br>
-        <a href="CompleteUserInfo.html"><button id="user-info">User Information</button></a>
+        <a href="CompleteUserInfo.php"><button id="user-info">User Information</button></a>
     </div>
     <br>
-    <a href="transfer.html"><button id="send-button">Send money</button></a>
-    <a href="transactions.html"><button id="transactions">Transactions/Requests</button></a>
+    <a href="transfer.php"><button id="send-button">Send money</button></a>
+    <a href="transactions.php"><button id="transactions">Transactions/Requests</button></a>
 
     <?php include("includes/footer.php"); ?>
 </body>
